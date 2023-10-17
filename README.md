@@ -6,7 +6,7 @@ Connecting People with Plants.
 </h2>
 
 <p align="center">
-This is our final project at Makers bootcamp. Pollen Pals is a web application designed to connect people with plants, fostering a community of plant enthusiasts and promoting the joy of plant care. Whether you're a seasoned plant parent or a budding beginner, Pollen Pals is your one-stop shop for all things plant-related.</p>
+This is our final project at Makers bootcamp. PollenPals is a web application designed to connect people with plants, fostering a community of plant enthusiasts and promoting the joy of plant care. Whether you're a seasoned plant parent or a budding beginner, PollenPals is your one-stop shop for all things plant-related.</p>
 <p>Features :</p>
 <ul>
     <li>Plant Encyclopedia: Explore a comprehensive database of plants, including their care requirements, characteristics, and interesting facts.</li>
@@ -18,15 +18,15 @@ This is our final project at Makers bootcamp. Pollen Pals is a web application d
 
 <p>Getting Started</p>
 <ol>
-    <li>Create an Account: Sign up for a free Pollen Pals account to start exploring the plant-loving community.</li>
+    <li>Create an Account: Sign up for a free PollenPals account to start exploring the plant-loving community.</li>
     <li>Build Your Profile: Complete your profile by indicating your plant preferences, experience level, and location.</li>
     <li>Explore the Plant Encyclopedia: Browse the extensive plant database to learn about different species and their care requirements.</li>
-    <li>Receive Personalized Recommendations: Pollen Pals will suggest plants that match your preferences and lifestyle.</li>
+    <li>Receive Personalized Recommendations: PollenPals will suggest plants that match your preferences and lifestyle.</li>
     <li>Join the Community Forum: Connect with fellow plant enthusiasts, share tips, and ask questions.</li>
     <li>Browse the Plant Marketplace: Find unique plants from local sellers and add greenery to your home.</li>
 </ol>
 
-<p>Benefits of Pollen Pals</p>
+<p>Benefits of PollenPals</p>
 <ul>
     <li>Enhance your plant knowledge: Learn about a wide variety of plants, their care requirements, and interesting facts.</li>
     <li>Find the perfect plants for your home: Receive personalized plant recommendations tailored to your preferences and lifestyle.</li>
@@ -35,7 +35,7 @@ This is our final project at Makers bootcamp. Pollen Pals is a web application d
     <li>Discover unique plants: Explore a curated selection of plants from local nurseries and independent sellers.</li>
 </ul>
 
-<p>Pollen Pals is more than just a web application; it's a community of plant enthusiasts fostering a shared passion for the natural world. Join us and discover the joy of connecting with plants and fellow plant lovers.</p>
+<p>PollenPals is more than just a web application; it's a community of plant enthusiasts fostering a shared passion for the natural world. Join us and discover the joy of connecting with plants and fellow plant lovers.</p>
 
 ## Our Team 
 * **[Alice Birkett](https://github.com/aliceb91)**
