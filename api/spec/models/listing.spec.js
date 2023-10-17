@@ -1,21 +1,22 @@
 const mongoose = require('mongoose')
+const Listing = require('../../models/listing.js')
 
 require('../mongodb_helper')
 
 describe('Listing Model', () => {
     beforeEach((done) => {
-        mongoose.connection.collections.users.drop(() => {
+        mongoose.connection.collections.listing.drop(() => {
           done();
         });
       });
-      
+
     it('We would like to create a instance of a listing', () => {
         const listing = new Listing({ 
             userID: 'userID',
             userName: 'Joe Bloggs',
             userEmail: 'someEmail@test.com',
             userPlant: 'testPlant', 
-            requestedPlan: 'anotherPlan',
+            requestedPlant: 'anotherPlan',
             userLocation: 'somewhere',
             plantPrice: 10,
         });
