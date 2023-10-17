@@ -4,10 +4,10 @@ const ListingSchema = new mongoose.Schema({
     userID: {type: String, required: true},
     userName: {type: String, required: true},
     userEmail: {type: String, required: true},
-    userPlant: {type: String},
-    requestedPlant: {type: String},
+    userPlant: {type: String, default: "None"},
+    requestedPlants: {type: [String], default: ["None"]},
     userLocation: {type: String, required: true},
-    plantPrice: {type: Number}
+    plantPrice: {type: Number, default: 0}
     });
     
 

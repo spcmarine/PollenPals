@@ -16,7 +16,7 @@ describe('Listing Model', () => {
             userName: 'Joe Bloggs',
             userEmail: 'someEmail@test.com',
             userPlant: 'testPlant', 
-            requestedPlant: 'anotherPlan',
+            requestedPlants: ['anotherPlan'],
             userLocation: 'somewhere',
             plantPrice: 10
         });
@@ -24,7 +24,7 @@ describe('Listing Model', () => {
         expect(listing.userName).toEqual('Joe Bloggs');
         expect(listing.userEmail).toEqual('someEmail@test.com');
         expect(listing.userPlant).toEqual('testPlant');
-        expect(listing.requestedPlant).toEqual('anotherPlan');
+        expect(listing.requestedPlants).toEqual(['anotherPlan']);
         expect(listing.userLocation).toEqual('somewhere');
         expect(listing.plantPrice).toEqual(10);
     });
@@ -40,7 +40,7 @@ describe('Listing Model', () => {
         userName: 'Joe Bloggs',
         userEmail: 'someEmail@test.com',
         userPlant: 'testPlant', 
-        requestedPlant: 'anotherPlan',
+        requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
         plantPrice: 10
       });
@@ -51,7 +51,7 @@ describe('Listing Model', () => {
         userName: 'Joe Bloggs',
         userEmail: 'someEmail@test.com',
         userPlant: 'testPlant', 
-        requestedPlant: 'anotherPlan',
+        requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
         plantPrice: 10
       });
