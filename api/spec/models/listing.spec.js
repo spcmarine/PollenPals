@@ -5,7 +5,7 @@ require('../mongodb_helper')
 
 describe('Listing Model', () => {
     beforeEach((done) => {
-        mongoose.connection.collections.listing.drop(() => {
+        mongoose.connection.collections.listings.drop(() => {
           done();
         });
       });
@@ -20,13 +20,13 @@ describe('Listing Model', () => {
             userLocation: 'somewhere',
             plantPrice: 10,
         });
-        expect(user.userID).toEqual('userID');
-        expect(user.userName).toEqual('Joe Bloggs');
-        expect(user.userEmail).toEqual('someEmail@test.com');
-        expect(user.userPlant).toEqual('testPlant');
-        expect(user.requestedPlant).toEqual('anotherPlan');
-        expect(user.userLocation).toEqual('somewhere');
-        expect(user.plantPrice).toEqual(10);
+        expect(listing.userID).toEqual('userID');
+        expect(listing.userName).toEqual('Joe Bloggs');
+        expect(listing.userEmail).toEqual('someEmail@test.com');
+        expect(listing.userPlant).toEqual('testPlant');
+        expect(listing.requestedPlant).toEqual('anotherPlan');
+        expect(listing.userLocation).toEqual('somewhere');
+        expect(listing.plantPrice).toEqual(10);
     });
 
 })

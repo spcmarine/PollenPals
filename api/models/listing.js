@@ -12,6 +12,6 @@ const ListingSchema = new mongoose.Schema({
     
 
   
-  const User = mongoose.model("Listing", ListingSchema);
+  const Listing = mongoose.model("Listing", ListingSchema);
   
-  module.exports = User;
+  module.exports = Listing;
