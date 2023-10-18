@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import './signup.css';
+import styles from './signup.css';
 
 const SignUpForm = ({ navigate }) => {
     // State variables to manage the email and password input values
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confrimepassword, setConfirmePassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
 
@@ -37,20 +38,42 @@ const handleSubmit = async (event) =>{
         })
     }
 
+      // Function to handle email input change
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+  }
+
+  // Function to handle password input change
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+  }
+
+    const handleConfrimePasswordChange = (event) => {
+        setPassword(event.target.value);
+}
+
+    const handleFirstNameChange = (event) => {
+        setFirstName(event.target.value);
+  }
+
+    const handleLastNameChange = (event) => {
+        setLastName(event.target.value);
+  }
+
 
     return(
         <div>
             <form>
                 <p>Email: </p>
-                <input placeholder='Email' id='email' type='text' value={ email }></input>
+                <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange}></input>
                 <p>Password: </p>
-                <input placeholder="Password"></input>
+                <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange}></input>
                 <p>ConfriemPassword: </p>
-                <input placeholder="Comfirme Password"></input>
+                <input placeholder="ConfrimePassword" id='Confrimepassword' className={styles.Confirmepassword} type='password' value={confrimepassword} onChange={handleConfrimePasswordChange}></input>
                 <p>FirstName:</p>
-                <input placeholder="fristname"></input>
+                <input placeholder="First name" id='first-name' className={styles.firstName} type='first-name' value={firstName} onChange={handleFirstNameChange}></input>
                 <p>SecondName</p>
-                <input placeholder="second name" type="text" />
+                <input placeholder="Last name" id='last-name' className={styles.lastName} type='last-name' value={lastName} onChange={handleLastNameChange}/>
                 <button>Submit</button>
             </form>
         </div>
