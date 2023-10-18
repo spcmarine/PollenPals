@@ -2,6 +2,18 @@ const Listing = require('../models/listing');
 const TokenGenerator = require('../lib/token_generator');
 
 const ListingsController = {
+
+    Index: async(req, res) => {
+      try {
+        const listings = await Listing.find().exec()
+        console.log(listings)
+        const token = await TokenGenerator.jsonwebtoken(req.user_id)
+        res.status(200).json({message: "OK", listings: listings, token: token})
+      } catch (err) {
+        res.status(400).json({message: "Bad request"})
+      }
+    },
+
     Create: async (req, res) => {
         const listing = new Listing(
             {

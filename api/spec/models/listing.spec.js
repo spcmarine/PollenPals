@@ -12,14 +12,12 @@ describe('Listing Model', () => {
 
     it('We would like to create a instance of a listing', () => {
         const listing = new Listing({ 
-            userID: 'userID',
             userName: 'Joe Bloggs',
             userEmail: 'someEmail@test.com',
             userPlant: 'testPlant', 
             requestedPlants: ['anotherPlan'],
             userLocation: 'somewhere',
         });
-        expect(listing.userID).toEqual('userID');
         expect(listing.userName).toEqual('Joe Bloggs');
         expect(listing.userEmail).toEqual('someEmail@test.com');
         expect(listing.userPlant).toEqual('testPlant');
@@ -35,7 +33,6 @@ describe('Listing Model', () => {
 
     it('can add a listing', async () => {
       const listing = new Listing({
-        userID: 'userID',
         userName: 'Joe Bloggs',
         userEmail: 'someEmail@test.com',
         userPlant: 'testPlant', 
@@ -45,7 +42,6 @@ describe('Listing Model', () => {
       await listing.save();
       response = await Listing.find().exec();
       expect(response[0]).toMatchObject({
-        userID: 'userID',
         userName: 'Joe Bloggs',
         userEmail: 'someEmail@test.com',
         userPlant: 'testPlant', 

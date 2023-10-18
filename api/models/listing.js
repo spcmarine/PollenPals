@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const { ObjectID } = require('mongodb')
 
 const ListingSchema = new mongoose.Schema({
-    userID: {type: String, required: true},
+    userID: {type: mongoose.Schema.Types.ObjectId, ref: "Users"},
     userName: {type: String, required: true},
     userEmail: {type: String, required: true},
     userPlant: {type: String, default: "None"},

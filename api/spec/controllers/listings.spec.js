@@ -116,5 +116,40 @@ describe('/listings', () => {
               userLocation: 'Somewhere'});
             expect(response.body.token).toEqual(undefined);
           });
-    })
-})
+    });
+
+    describe('listings GET call', () => {
+        it('returns a status code of 200', async () => {
+            let response = await request(server)
+                .get('/listings')
+                .set('Authorization', `Bearer ${token}`)
+                .send()
+            expect(response.statusCode).toBe(200);
+        });
+
+        it('returns current listings', async () => {
+            const listing1 = Listing({
+                userName: 'John Smith',
+                userEmail: 'John@email.com',
+                userPlant: 'test plant',
+                requestedPlants: ['another plant'],
+                userLocation: 'Somewhere'
+            });
+            const listing2 = Listing({
+                userName: 'Tess Test',
+                userEmail: 'tess.test@test.com',
+                userPlant: 'another test plant',
+                requestedPlants: ['another plant', 'another another plant'],
+                userLocation: 'Nowhere'
+            });
+            await listing1.save();
+            await listing2.save();
+            const response = await request(server)
+                .get('/listings')
+                .set('Authorization', `Bearer ${token}`)
+                .send();
+            let emails = response.body.listings.map((listing) => listing.userEmail)
+            expect(emails).toEqual(['John@email.com', 'tess.test@test.com'])
+        });
+    });
+});
