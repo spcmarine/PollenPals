@@ -7,7 +7,7 @@ const ListingSchema = new mongoose.Schema({
     userPlant: {type: String, default: "None"},
     requestedPlants: {type: [String], default: ["None"]},
     userLocation: {type: String, required: true},
-    plantPrice: {type: Number, default: 0}
+    isAvailable: {type: Boolean, default: true}
     });
     
 

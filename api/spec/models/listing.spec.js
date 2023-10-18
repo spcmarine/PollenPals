@@ -18,7 +18,6 @@ describe('Listing Model', () => {
             userPlant: 'testPlant', 
             requestedPlants: ['anotherPlan'],
             userLocation: 'somewhere',
-            plantPrice: 10
         });
         expect(listing.userID).toEqual('userID');
         expect(listing.userName).toEqual('Joe Bloggs');
@@ -26,7 +25,7 @@ describe('Listing Model', () => {
         expect(listing.userPlant).toEqual('testPlant');
         expect(listing.requestedPlants).toEqual(['anotherPlan']);
         expect(listing.userLocation).toEqual('somewhere');
-        expect(listing.plantPrice).toEqual(10);
+        expect(listing.isAvailable).toEqual(true);
     });
 
     it('can list all listings', async () => {
@@ -42,7 +41,6 @@ describe('Listing Model', () => {
         userPlant: 'testPlant', 
         requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
-        plantPrice: 10
       });
       await listing.save();
       response = await Listing.find().exec();
@@ -53,7 +51,7 @@ describe('Listing Model', () => {
         userPlant: 'testPlant', 
         requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
-        plantPrice: 10
+        isAvailable: true
       });
     });
 });
