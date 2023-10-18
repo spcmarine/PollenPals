@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import LoginForm from './pages/login/login';
+import './app.css';
+import LoginForm from './pages/login/LoginForm';
 import {
     useNavigate,
     Routes,
