@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './app.css';
 import LoginForm from './pages/login/LoginForm';
-import SignupForm from './pages/signup/Signup';
+import SignupForm from './pages/signup/signup';
 import Home from './pages/homepage/Homepage.jsx';
 import {
     useNavigate,
