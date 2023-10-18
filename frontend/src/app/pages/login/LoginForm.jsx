@@ -4,44 +4,48 @@ const LoginForm  = ({navigate}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const handleResponse = (error, data) => {
-            if (error) {
-                navigate('/login');
-            } else {
-                window.localStorage.setItem('token', data.token);
-                window.sessionStorage.setItem('sessionUser', email);
-                window.sessionStorage.setItem('currentUser', data.username);
-            }
-        }
-
-        fetch('/tokens', {
+    
+        let response = await fetch( '/tokens', {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: email, password: password })
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email, password: password })
         })
-        .then(response => {
-            if (response.status !== 201) {
-                handleResponse(new Error('Login failed'), null);
-            } else {
-                response.json().then(data => handleResponse(null, data));
-            }
-        });
+    
+        if(response.status !== 201) {
+            navigate('/login')
+        } else {
+            let data = await response.json()
+            window.localStorage.setItem("token", data.token)
+            window.sessionStorage.setItem("sessionUser", email)
+            window.sessionStorage.setItem("currentUser", data.username)
+            console.log(data.username)
+            navigate('/home')
+        }
+    }
+    
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value)
+    }
+    
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value)
+    }
 
         return (
-        <div>
+        <div class="loginpage">
             <form>
                 <p>Email: </p>
-                <input>Text</input>
+                <input placeholder='Email' id='email' type='text' value={ email }></input>
                 <p>Password: </p>
+                <input placeholder="Password"></input>
+                <button>Submit</button>
             </form>
         </div>
         )
     };
-};
 
 export default LoginForm;
