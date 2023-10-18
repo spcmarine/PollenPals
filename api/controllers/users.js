@@ -11,7 +11,7 @@ const UsersController = {
       const saltRounds = 10;
       bcrypt.hash(req.body.password, saltRounds, async (err, hash) => {
         if (err) {
-          res.status(401).json({message: "Password encryption error"})
+          res.status(400).json({message: "Password encryption error"})
         } else {
           req.body.password = hash;
           const user = new User(req.body)
