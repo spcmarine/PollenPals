@@ -5,8 +5,10 @@ const JWT = require('jsonwebtoken')
 const logger = require('morgan')
 const path = require('path')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 const usersRouter = require('./routes/users');
+const listingsRouter = require('./routes/listings');
 
 app.use(express.json())
 
@@ -44,6 +46,7 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use('/users', usersRouter);
+app.use('/listings', tokenChecker, listingsRouter)
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

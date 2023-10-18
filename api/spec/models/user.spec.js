@@ -24,7 +24,6 @@ describe("user model", () => {
 
   it('can list all users', async () => {
     const response = await User.find().exec()
-    console.log(response)
     expect(response).toEqual([]);
   });
 
@@ -37,7 +36,6 @@ describe("user model", () => {
     });
     await user.save()
     response = await User.find().exec()
-    console.log(response)
     expect(response[0]).toMatchObject({
       email: "test.email@test.com",
       firstName: "Tess",
