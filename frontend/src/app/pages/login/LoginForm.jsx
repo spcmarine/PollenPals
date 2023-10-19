@@ -4,6 +4,7 @@ import './LoginForm.css';
 const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -15,16 +16,23 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
         },
         body: JSON.stringify({ email: email, password: password })
         })
-    
-        if(response.status !== 201) {
-            navigate('/login')
-        } else {
+
+        if(response.status === 201) {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             window.sessionStorage.setItem("sessionUser", email)
             window.sessionStorage.setItem("currentUser", data.username)
             console.log(data.username)
             navigate('/home')
+        } else if (response.status === 402){
+            setErrorMessage("Incorrect Password")
+            navigate('/login')
+        } else if (response.status === 401){
+            setErrorMessage("Incorrect Email")
+            navigate('/login')
+        } else {
+            setErrorMessage("Something went wrong, please try again later")
+            navigate('/login')
         }
     }
     
@@ -37,13 +45,14 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     }
 
         return (
-        <div class="loginpage">
+        <div className="loginpage">
             <form onSubmit={handleSubmit}>
                 <p>Email: </p>
                 <input placeholder='Email' id='email' onChange={handleEmailChange}></input>
                 <p>Password: </p>
                 <input placeholder="Password" onChange={handlePasswordChange}></input>
                 <input id='submit' type="submit" value="Submit" />
+                <div id='signup-error-message'>{errorMessage}</div>
             </form>
         </div>
         )
