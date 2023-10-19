@@ -48,7 +48,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use('/users', usersRouter);
 app.use('/listings', tokenChecker, listingsRouter);
-app.use('/tokens', tokenChecker, tokensRouter);
+app.use('/tokens', tokensRouter);
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
