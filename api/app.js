@@ -9,6 +9,7 @@ require('dotenv').config()
 
 const usersRouter = require('./routes/users');
 const listingsRouter = require('./routes/listings');
+const tokensRouter = require('./routes/tokens');
 
 app.use(express.json())
 
@@ -46,7 +47,8 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use('/users', usersRouter);
-app.use('/listings', tokenChecker, listingsRouter)
+app.use('/listings', tokenChecker, listingsRouter);
+app.use('/tokens', tokensRouter);
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

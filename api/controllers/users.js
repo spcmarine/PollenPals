@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
-const TokenGenerator = require('../lib/token_generator');
+const TokenGenerator = require('../models/token_generator');
 
 const UsersController = {
   Create: async (req, res) => {
@@ -13,8 +13,13 @@ const UsersController = {
         if (err) {
           res.status(400).json({message: "Password encryption error"})
         } else {
-          req.body.password = hash;
-          const user = new User(req.body)
+          const userData = {
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            password: hash
+          }
+          const user = new User(userData)
 
           try {
             await user.save()

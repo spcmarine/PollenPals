@@ -9,6 +9,7 @@ describe('/users', () => {
   });
 
   afterAll(async () => {
+    await User.deleteMany({})
     await server.close()
   })
 

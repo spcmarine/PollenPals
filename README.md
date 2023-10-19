@@ -1,5 +1,5 @@
 <h1 align="center">
- PollenPals
+ PollenPals 
 </h1>
 <h2 align="center">
 Connecting People with Plants.
