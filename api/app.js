@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 8080
 const JWT = require('jsonwebtoken')
@@ -6,6 +7,10 @@ const logger = require('morgan')
 const path = require('path')
 const mongoose = require('mongoose')
 require('dotenv').config()
+
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 const usersRouter = require('./routes/users');
 const listingsRouter = require('./routes/listings');
@@ -49,6 +54,9 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.use('/users', usersRouter);
 app.use('/listings', tokenChecker, listingsRouter);
 app.use('/tokens', tokensRouter);
+
+
+
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

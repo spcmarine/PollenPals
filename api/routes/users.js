@@ -5,3 +5,4 @@ const UsersController = require('../controllers/users');
 router.post('/', UsersController.Create);
 
 module.exports = router;
+
