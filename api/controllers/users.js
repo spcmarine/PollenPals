@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
-const TokenGenerator = require('../lib/token_generator');
+const TokenGenerator = require('../models/token_generator');
 
 const UsersController = {
   Create: async (req, res) => {
