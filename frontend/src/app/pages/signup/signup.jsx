@@ -8,13 +8,26 @@ const SignUpForm = ({ navigate }) => {
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-  
+    const [errorMessage, setErrorMessage] = useState("");
 
 
 const handleSubmit = async (event) => {
       event.preventDefault();
 
       try {
+        if (password !== confirmPassword) {
+            setErrorMessage("Passwords do not match");
+            return;
+        }
+        if (!validatePassword(password)) {
+            setErrorMessage("Password must be between 6 and 20 characters and contain at least one number, one uppercase letter, one lowercase letter, and one special character");
+            return; 
+        }
+        if (!validateEmail(email)) {
+            setErrorMessage("Please enter a valid email address");
+            return;
+        }
+
         const response = await fetch('http://localhost:8080/users', {
             method: 'post',
             headers: {
@@ -27,10 +40,15 @@ const handleSubmit = async (event) => {
               lastName: lastName,
             })
         });
+        const data = await response.json();
         
         if (response.status === 201) {
             navigate('/login');
+        } else if (response.status === 409) {
+            setErrorMessage(data.message)
+            navigate('/signup');
         } else {
+            setErrorMessage("Something went wrong. Please try again.")
             navigate('/signup');
         }
       } catch (error) {
@@ -38,12 +56,22 @@ const handleSubmit = async (event) => {
       }
   };
 
-      // Function to handle email input change
+  const validatePassword = (password) =>{
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-+.]).{6,20}$/;
+    return regex.test(password);
+  }
+
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+}
+
+
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
   }
 
-  // Function to handle password input change
+  
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
   }
@@ -74,6 +102,7 @@ const handleSubmit = async (event) => {
           {/* Submit button */}
           <input className={styles.submit} id='submit' type="submit" value="Submit" />
         </form>
+        <div id='signup-error-message' className={styles.errorMessage}>{errorMessage}</div>
         <div id='signup-login' className={styles.login}>Already have an account? <a id='signup-login-link' className={styles.loginLink} href='/login'>Login</a></div>
       </div>
     </div>
