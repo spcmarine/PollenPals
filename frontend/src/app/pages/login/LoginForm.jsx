@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 import './LoginForm.css';
 
-const LoginForm  = ({navigate}) => {
+const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
     
-        let response = await fetch( '/tokens', {
-            method: 'post',
+        let response = await fetch( 'http://localhost:8080/tokens', {
+            method: 'POST',
             headers: {
             'Content-Type': 'application/json',
         },
@@ -38,15 +38,17 @@ const LoginForm  = ({navigate}) => {
 
         return (
         <div class="loginpage">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <p>Email: </p>
-                <input placeholder='Email' id='email' type='text' value={ email }></input>
+                <input placeholder='Email' id='email' onChange={handleEmailChange}></input>
                 <p>Password: </p>
-                <input placeholder="Password"></input>
-                <button>Submit</button>
+                <input placeholder="Password" onChange={handlePasswordChange}></input>
+                <input id='submit' type="submit" value="Submit" />
             </form>
         </div>
         )
     };
 
 export default LoginForm;
+
+//!Makers1234

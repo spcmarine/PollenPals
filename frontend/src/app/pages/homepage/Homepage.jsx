@@ -10,7 +10,7 @@ const Home = ({ navigate }) => {
   
     useEffect(() => {
       if(token) {
-        fetch("/users/home", {
+        fetch("/home", {
           headers: {
             'Authorization': `Bearer ${token}`
           }
