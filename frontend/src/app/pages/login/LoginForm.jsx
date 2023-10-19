@@ -59,5 +59,3 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     };
 
 export default LoginForm;
-
-//!Makers1234
