@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './signup.css';
+import styles from './signup.module.css';
 
 const SignUpForm = ({ navigate }) => {
     // State variables to manage the email and password input values
@@ -88,11 +88,12 @@ const handleSubmit = async (event) => {
         setLastName(event.target.value);
   }
 
-
+console.log(styles)
   return (
     <div id='signup-front-page' className={styles.fullPage}>
+      <img id='signup-picture' className={styles.signupPicture} src="/SignupPic.png"></img>
       <div id='signup-form-area' className={styles.signupArea}>
-        <h2>Join Us Here!</h2>
+        <h2 className={styles.signupHeader}>Join Us Here!</h2>
         <form id='signup-form' className={styles.signupForm} onSubmit={handleSubmit}>
           <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange} />
           <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange} />     
