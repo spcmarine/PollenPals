@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import Navbar from "../../components/navbar/Navbar";
 
 import styles from './homepage.css'
 
@@ -32,6 +33,7 @@ const Home = ({ navigate }) => {
     if(token) {
         return(
           <>
+          <Navbar/>
             <div id='homepage' className={styles.homepage}>
               <h1>Homepage</h1>
               <h2>listings</h2>
