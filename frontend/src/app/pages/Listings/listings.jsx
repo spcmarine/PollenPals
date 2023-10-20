@@ -1,9 +1,8 @@
 import React, { useEffect, useState} from "react";
 import Navbar from "../../components/navbar/Navbar";
+import styles from './listings.css'
 
-import styles from './homepage.css'
-
-const Home = ({ navigate }) => {
+const Listings = ({ navigate }) => {
   
     const [token, setToken] = useState(window.localStorage.getItem("token"));
     const [posts, setPosts] = useState([]);
@@ -11,7 +10,7 @@ const Home = ({ navigate }) => {
   
     useEffect(() => {
       if(token) {
-        fetch("/users/home", {
+        fetch("/listings", {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -48,4 +47,5 @@ const Home = ({ navigate }) => {
       }
     }
     
-    export default Home;
+    export default Listings;
+

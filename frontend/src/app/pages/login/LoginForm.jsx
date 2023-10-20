@@ -1,30 +1,38 @@
 import React, {useState} from "react";
 import './LoginForm.css';
 
-const LoginForm  = ({navigate}) => {
+const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
     
-        let response = await fetch( '/tokens', {
-            method: 'post',
+        let response = await fetch( 'http://localhost:8080/tokens', {
+            method: 'POST',
             headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email: email, password: password })
         })
-    
-        if(response.status !== 201) {
-            navigate('/login')
-        } else {
+
+        if(response.status === 201) {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             window.sessionStorage.setItem("sessionUser", email)
             window.sessionStorage.setItem("currentUser", data.username)
             console.log(data.username)
-            navigate('/home')
+            navigate('/listings')
+        } else if (response.status === 402){
+            setErrorMessage("Incorrect Password")
+            navigate('/login')
+        } else if (response.status === 401){
+            setErrorMessage("Incorrect Email")
+            navigate('/login')
+        } else {
+            setErrorMessage("Something went wrong, please try again later")
+            navigate('/login')
         }
     }
     
@@ -37,13 +45,14 @@ const LoginForm  = ({navigate}) => {
     }
 
         return (
-        <div class="loginpage">
-            <form>
+        <div className="loginpage">
+            <form onSubmit={handleSubmit}>
                 <p>Email: </p>
-                <input placeholder='Email' id='email' type='text' value={ email }></input>
+                <input placeholder='Email' id='email' onChange={handleEmailChange}></input>
                 <p>Password: </p>
-                <input placeholder="Password"></input>
-                <button>Submit</button>
+                <input placeholder="Password" onChange={handlePasswordChange}></input>
+                <input id='submit' type="submit" value="Submit" />
+                <div id='signup-error-message'>{errorMessage}</div>
             </form>
         </div>
         )

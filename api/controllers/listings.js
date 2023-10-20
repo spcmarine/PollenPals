@@ -1,5 +1,5 @@
 const Listing = require('../models/listing');
-const TokenGenerator = require('../lib/token_generator');
+const TokenGenerator = require('../models/token_generator');
 
 const ListingsController = {
 

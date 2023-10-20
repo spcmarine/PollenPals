@@ -4,52 +4,80 @@ import styles from './signup.css';
 const SignUpForm = ({ navigate }) => {
     // State variables to manage the email and password input values
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confrimepassword, setConfirmePassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
 
-const handleSubmit = async (event) =>{
-    event.preventDefault();
+const handleSubmit = async (event) => {
+      event.preventDefault();
 
-    // Send a POST request to the '/users' endpoint with email and password data and name 1st and 2nd
-    fetch('/users', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          email: email, 
-          password: password, 
-          firstName: firstName, 
-          lastName: lastName,
-        })
-      })
-        .then(response => {
-          // Check the response status code
-          if (response.status === 201) {
-            // If the status code is 201 (Created), navigate to the login page
+      try {
+        if (password !== confirmPassword) {
+            setErrorMessage("Passwords do not match");
+            return;
+        }
+        if (!validatePassword(password)) {
+            setErrorMessage("Password must be between 6 and 20 characters and contain at least one number, one uppercase letter, one lowercase letter, and one special character");
+            return; 
+        }
+        if (!validateEmail(email)) {
+            setErrorMessage("Please enter a valid email address");
+            return;
+        }
+
+        const response = await fetch('http://localhost:8080/users', {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+              email: email, 
+              password: password, 
+              firstName: firstName, 
+              lastName: lastName,
+            })
+        });
+        const data = await response.json();
+        
+        if (response.status === 201) {
             navigate('/login');
-          } else {
-            // If the status code is not 201, navigate back to the signup page
+        } else if (response.status === 409) {
+            setErrorMessage(data.message)
             navigate('/signup');
-          }
-        })
-    }
+        } else {
+            setErrorMessage("Something went wrong. Please try again.")
+            navigate('/signup');
+        }
+      } catch (error) {
+      console.error("Error during fetch:", error);
+      }
+  };
 
-      // Function to handle email input change
+  const validatePassword = (password) =>{
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-+.]).{6,20}$/;
+    return regex.test(password);
+  }
+
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+}
+
+
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
   }
 
-  // Function to handle password input change
+  
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
   }
 
-    const handleConfrimePasswordChange = (event) => {
-        setPassword(event.target.value);
+    const handleConfirmPasswordChange = (event) => {
+        setConfirmPassword(event.target.value);
 }
 
     const handleFirstNameChange = (event) => {
@@ -61,23 +89,24 @@ const handleSubmit = async (event) =>{
   }
 
 
-    return(
-        <div>
-            <form>
-                <p>Email: </p>
-                <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange}></input>
-                <p>Password: </p>
-                <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange}></input>
-                <p>ConfriemPassword: </p>
-                <input placeholder="ConfrimePassword" id='Confrimepassword' className={styles.Confirmepassword} type='password' value={confrimepassword} onChange={handleConfrimePasswordChange}></input>
-                <p>FirstName:</p>
-                <input placeholder="First name" id='first-name' className={styles.firstName} type='first-name' value={firstName} onChange={handleFirstNameChange}></input>
-                <p>SecondName</p>
-                <input placeholder="Last name" id='last-name' className={styles.lastName} type='last-name' value={lastName} onChange={handleLastNameChange}/>
-                <button>Submit</button>
-            </form>
-        </div>
-    )
+  return (
+    <div id='signup-front-page' className={styles.fullPage}>
+      <div id='signup-form-area' className={styles.signupArea}>
+        <h2>Join Us Here!</h2>
+        <form id='signup-form' className={styles.signupForm} onSubmit={handleSubmit}>
+          <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange} />
+          <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange} />     
+          <input placeholder="Confirm Password" id='confirm-password' className={styles.username} type='password' value={confirmPassword} onChange={handleConfirmPasswordChange} />
+          <input placeholder="First Name" id='first-name' className={styles.firstName} type='text' value={firstName} onChange={handleFirstNameChange} />
+          <input placeholder="Last Name" id='last-name' className={styles.lastName} type='text' value={lastName} onChange={handleLastNameChange} />
+          {/* Submit button */}
+          <input className={styles.submit} id='submit' type="submit" value="Submit" />
+        </form>
+        <div id='signup-error-message' className={styles.errorMessage}>{errorMessage}</div>
+        <div id='signup-login' className={styles.login}>Already have an account? <a id='signup-login-link' className={styles.loginLink} href='/login'>Login</a></div>
+      </div>
+    </div>
+  );
 }
 
 export default SignUpForm;
