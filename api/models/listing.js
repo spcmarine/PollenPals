@@ -8,7 +8,13 @@ const ListingSchema = new mongoose.Schema({
     userPlant: {type: String, default: "None"},
     requestedPlants: {type: [String], default: ["None"]},
     userLocation: {type: String, required: true},
-    isAvailable: {type: Boolean, default: true}
+    isAvailable: {type: Boolean, default: true},
+    title: {type: String, require: true},
+    description: {type: String, required: true},
+    age: {type: String, required: true},
+    size: {type: String, required: true},
+    tip: {type: String},
+    image: {type: String}
     });
     
 

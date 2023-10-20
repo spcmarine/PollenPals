@@ -19,7 +19,7 @@ const TokensController = {
           res.status(402).json({message: "Incorrect Password"});
         } else {
           const token = await TokenGenerator.jsonwebtoken(user.id);
-          res.status(201).json({token: token, message: "OK"});
+          res.status(201).json({token: token, message: "OK", username: `${user.firstName} ${user.lastName}`, userID: user._id});
         }
       });
     }
