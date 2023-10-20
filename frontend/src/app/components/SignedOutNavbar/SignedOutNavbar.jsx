@@ -5,7 +5,7 @@ const SignedOutNavbar = () => {
   
   return (
     <div className={styles.navbar}>
-      <img className={styles.logo} src="Logo.png"></img>
+      <a className={styles.logoArea}href="/"><img className={styles.logo} src="Logo.png"></img></a>
       <div className={styles.links}>
         <a className={styles.link} href="/login">Log in</a>
         <a className={styles.link} href="/signup">Sign up</a>

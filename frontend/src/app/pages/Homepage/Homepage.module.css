@@ -1,0 +1,91 @@
+.homepagePicture{
+  width: 35%;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullPage{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepageHeader {
+  color: white;
+  margin-bottom: 36px;
+  font-size: 64px;
+}
+
+.homepageDescription {
+  color: white;
+  font-size: 28px;
+}
+
+
+.infoArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+  margin-right: 10%;
+  margin-top: -60px;
+}
+
+.loginButton {
+  height: 48px;
+  width: 112px;
+  margin-bottom: 12px;
+  border: none;
+  background-color: #FCB97D;
+  border-radius: 10px;
+  color: #3C6E71;
+  font-size: 16px;
+  font-size: 19px;
+}
+
+.signupButton {
+  height: 48px;
+  width: 112px;
+  margin-bottom: 12px;
+  border-color: #FCB97D;
+  border-radius: 10px;
+  background-color: #3c6e7100;
+  font-size: 16px;
+  color: white;
+  font-size: 19px;
+}
+
+.signupButton:active {
+  border-style: outset;
+}
+
+.leftMargin, .rightMargin {
+  height: 100%;
+  width: 40%;
+}
+
+.pageWithNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.buttonsArea {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 32px;
+  margin-left: -140px;
+}

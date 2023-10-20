@@ -90,3 +90,10 @@
 .signupLink:visited {
   color: white;
 }
+
+.errorMessage {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
