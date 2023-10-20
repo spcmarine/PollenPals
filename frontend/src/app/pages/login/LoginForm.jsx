@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import './LoginForm.css';
+import styles from './LoginForm.module.css';
+import SignedOutNavbar from '../../components/SignedOutNavbar/SignedOutNavbar'
 
 const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     const [email, setEmail] = useState("");
@@ -45,15 +46,23 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
     }
 
         return (
-        <div className="loginpage">
-            <form onSubmit={handleSubmit}>
-                <p>Email: </p>
-                <input placeholder='Email' id='email' onChange={handleEmailChange}></input>
-                <p>Password: </p>
-                <input placeholder="Password" onChange={handlePasswordChange}></input>
-                <input id='submit' type="submit" value="Submit" />
-                <div id='signup-error-message'>{errorMessage}</div>
-            </form>
+        <div className={styles.pageWithNav}>
+            <SignedOutNavbar className={styles.signedOutNavbar}></SignedOutNavbar>
+            <div className={styles.fullPage}>
+                <div className={styles.leftMargin}/>
+                <div className={styles.loginFormArea}>
+                    <h2 className={styles.loginHeader}>Sign in</h2>
+                    <form onSubmit={handleSubmit} className={styles.loginForm}>
+                        <input placeholder='Email' id='email' className={styles.email} onChange={handleEmailChange}></input>
+                        <input placeholder="Password" className={styles.password} type='password' onChange={handlePasswordChange}></input>
+                        <input id='submit' type="submit" className={styles.submit} value="Submit" />
+                        <div id='login-error-message'>{errorMessage}</div>
+                    </form>
+                    <div id='signup-login' className={styles.signup}>Need an account? <a id='login-signup-link' className={styles.signupLink} href='/signup'>Sign up</a></div>
+                </div>
+                <img id='signup-picture' className={styles.loginPicture} src="/LoginPic.png"></img>
+                <div className={styles.rightMargin}/>
+            </div>
         </div>
         )
     };
