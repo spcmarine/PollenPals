@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './app.css';
 import LoginForm from './pages/login/LoginForm';
 import SignupForm from './pages/signup/signup';
-import Home from './pages/homepage/Homepage.jsx';
+import Home from './pages/Listings/listings.jsx';
 import {
     useNavigate,
     Routes,

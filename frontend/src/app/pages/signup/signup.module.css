@@ -1,6 +1,10 @@
 .signupPicture{
   width: 35%;
   border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fullPage{
@@ -8,7 +12,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -17,19 +21,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
+  height: 70%;
+  margin-left: 10%;
 }
 
 .signupForm {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
 
 .signupHeader {
   color: white;
+  margin-bottom: 48px;
+  font-size: 48px;
 }
 
 .login {
@@ -37,12 +46,45 @@
   width: 100%;
 }
 
-.email {
+.email, .password, .password2, .firstName, .lastName {
   padding: 8px;
   background-color: #D2FFCF;
   color: #3C6E71;
-  width: 125%;
-  height: 20%;
+  width: 100%;
+  height: 42px;
   border-radius: 8px;
   border: none;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.submit {
+  height: 36px;
+  width: 96px;
+  margin-bottom: 12px;
+  border: none;
+  background-color: #FCB97D;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.leftMargin, .rightMargin {
+  height: 100%;
+  width: 40%;
+}
+
+.loginLing {
+  color: white;
+}
+
+.loginLink:visited {
+  color: white;
 }
