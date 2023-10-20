@@ -56,7 +56,7 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
                         <input placeholder='Email' id='email' className={styles.email} onChange={handleEmailChange}></input>
                         <input placeholder="Password" className={styles.password} type='password' onChange={handlePasswordChange}></input>
                         <input id='submit' type="submit" className={styles.submit} value="Submit" />
-                        <div id='login-error-message'>{errorMessage}</div>
+                        <div id='login-error-message' className={styles.errorMessage}>{errorMessage}</div>
                     </form>
                     <div id='signup-login' className={styles.signup}>Need an account? <a id='login-signup-link' className={styles.signupLink} href='/signup'>Sign up</a></div>
                 </div>
