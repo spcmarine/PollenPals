@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './signup.css';
+import styles from './signup.module.css';
 
 const SignUpForm = ({ navigate }) => {
     // State variables to manage the email and password input values
@@ -88,15 +88,17 @@ const handleSubmit = async (event) => {
         setLastName(event.target.value);
   }
 
-
+console.log(styles)
   return (
     <div id='signup-front-page' className={styles.fullPage}>
+      <div className={styles.leftMargin}/>
+      <img id='signup-picture' className={styles.signupPicture} src="/SignupPic.png"></img>
       <div id='signup-form-area' className={styles.signupArea}>
-        <h2>Join Us Here!</h2>
+        <h2 className={styles.signupHeader}>Join Us Here!</h2>
         <form id='signup-form' className={styles.signupForm} onSubmit={handleSubmit}>
           <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange} />
           <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange} />     
-          <input placeholder="Confirm Password" id='confirm-password' className={styles.username} type='password' value={confirmPassword} onChange={handleConfirmPasswordChange} />
+          <input placeholder="Confirm Password" id='confirm-password' className={styles.password2} type='password' value={confirmPassword} onChange={handleConfirmPasswordChange} />
           <input placeholder="First Name" id='first-name' className={styles.firstName} type='text' value={firstName} onChange={handleFirstNameChange} />
           <input placeholder="Last Name" id='last-name' className={styles.lastName} type='text' value={lastName} onChange={handleLastNameChange} />
           {/* Submit button */}
@@ -105,6 +107,7 @@ const handleSubmit = async (event) => {
         <div id='signup-error-message' className={styles.errorMessage}>{errorMessage}</div>
         <div id='signup-login' className={styles.login}>Already have an account? <a id='signup-login-link' className={styles.loginLink} href='/login'>Login</a></div>
       </div>
+      <div className={styles.rightMargin}/>
     </div>
   );
 }

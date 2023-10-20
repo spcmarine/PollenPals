@@ -48,4 +48,3 @@ const Listings = ({ navigate }) => {
     }
     
     export default Listings;
-
