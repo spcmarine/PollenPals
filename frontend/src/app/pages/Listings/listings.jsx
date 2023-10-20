@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import Navbar from "../../components/navbar/Navbar";
+import ListingFeed from "../../components/listingFeed/ListingFeed";
 import styles from './listings.css'
 
 const Listings = ({ navigate }) => {
@@ -37,6 +38,7 @@ const Listings = ({ navigate }) => {
               <h1>Homepage</h1>
               <h2>listings</h2>
               <div id='homepage-content' className={styles.content}>
+                <ListingFeed token={token}/>
                 {/* this should contain the listing feed componaet             */}
               </div>
             </div>

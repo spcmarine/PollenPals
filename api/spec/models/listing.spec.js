@@ -17,6 +17,11 @@ describe('Listing Model', () => {
             userPlant: 'testPlant', 
             requestedPlants: ['anotherPlan'],
             userLocation: 'somewhere',
+            title: "Test title",
+            description: "Test description",
+            age: "test age",
+            size: "test size",
+            tip: "test tip"
         });
         expect(listing.userName).toEqual('Joe Bloggs');
         expect(listing.userEmail).toEqual('someEmail@test.com');
@@ -24,6 +29,11 @@ describe('Listing Model', () => {
         expect(listing.requestedPlants).toEqual(['anotherPlan']);
         expect(listing.userLocation).toEqual('somewhere');
         expect(listing.isAvailable).toEqual(true);
+        expect(listing.title).toEqual("Test title");
+        expect(listing.description).toEqual("Test description");
+        expect(listing.age).toEqual("test age");
+        expect(listing.size).toEqual("test size");
+        expect(listing.tip).toEqual("test tip");
     });
 
     it('can list all listings', async () => {
@@ -38,6 +48,11 @@ describe('Listing Model', () => {
         userPlant: 'testPlant', 
         requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
+        title: "Test title",
+        description: "Test description",
+        age: "test age",
+        size: "test size",
+        tip: "test tip"
       });
       await listing.save();
       response = await Listing.find().exec();
@@ -47,7 +62,12 @@ describe('Listing Model', () => {
         userPlant: 'testPlant', 
         requestedPlants: ['anotherPlan'],
         userLocation: 'somewhere',
-        isAvailable: true
+        isAvailable: true,
+        title: "Test title",
+        description: "Test description",
+        age: "test age",
+        size: "test size",
+        tip: "test tip"
       });
     });
 });

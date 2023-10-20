@@ -47,7 +47,12 @@ describe('/listings', () => {
                 userEmail: 'John@email.com',
                 userPlant: 'test plant',
                 requestedPlants: ['another plant'],
-                userLocation: 'Somewhere'
+                userLocation: 'Somewhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             expect(response.statusCode).toBe(201);
         })
@@ -60,7 +65,12 @@ describe('/listings', () => {
                 userEmail: 'John@email.com',
                 userPlant: 'test plant',
                 requestedPlants: ['another plant'],
-                userLocation: 'Somewhere'
+                userLocation: 'Somewhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             let listings = await Listing.find();
             expect(listings.length).toBe(1);
@@ -75,7 +85,12 @@ describe('/listings', () => {
                 userEmail: 'John@email.com',
                 userPlant: 'test plant',
                 requestedPlants: ['another plant'],
-                userLocation: 'Somewhere'
+                userLocation: 'Somewhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             let newPayload = JWT.decode(response.body.token, process.env.JWT_SECRET);
             let originalPayload = JWT.decode(token, process.env.JWT_SECRET);
@@ -89,7 +104,12 @@ describe('/listings', () => {
                 userEmail: 'John@email.com',
                 userPlant: 'test plant',
                 requestedPlants: ['another plant'],
-                userLocation: 'Somewhere'
+                userLocation: 'Somewhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             expect(response.statusCode).toBe(401)
         })
@@ -100,7 +120,12 @@ describe('/listings', () => {
               userEmail: 'John@email.com',
               userPlant: 'test plant',
               requestedPlants: ['another plant'],
-              userLocation: 'Somewhere'
+              userLocation: 'Somewhere',
+              title: "Test title",
+              description: "Test description",
+              age: "test age",
+              size: "test size",
+              tip: "test tip"
              });
             let listings = await Listing.find();
             expect(listings.length).toEqual(0);
@@ -113,7 +138,13 @@ describe('/listings', () => {
               userEmail: 'John@email.com',
               userPlant: 'test plant',
               requestedPlants: ['another plant'],
-              userLocation: 'Somewhere'});
+              userLocation: 'Somewhere',
+              title: "Test title",
+              description: "Test description",
+              age: "test age",
+              size: "test size",
+              tip: "test tip"
+            });
             expect(response.body.token).toEqual(undefined);
           });
     });
@@ -133,14 +164,24 @@ describe('/listings', () => {
                 userEmail: 'John@email.com',
                 userPlant: 'test plant',
                 requestedPlants: ['another plant'],
-                userLocation: 'Somewhere'
+                userLocation: 'Somewhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             const listing2 = Listing({
                 userName: 'Tess Test',
                 userEmail: 'tess.test@test.com',
                 userPlant: 'another test plant',
                 requestedPlants: ['another plant', 'another another plant'],
-                userLocation: 'Nowhere'
+                userLocation: 'Nowhere',
+                title: "Test title",
+                description: "Test description",
+                age: "test age",
+                size: "test size",
+                tip: "test tip"
             });
             await listing1.save();
             await listing2.save();

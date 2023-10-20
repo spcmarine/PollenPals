@@ -23,6 +23,12 @@ const ListingsController = {
               requestedPlants: req.body.requestedPlants,
               userLocation: req.body.userLocation,
               userID: req.user_id,
+              title: req.body.title,
+              description: req.body.description,
+              age: req.body.age,
+              size: req.body.size,
+              tip: req.body.tip,
+              image: req.body.image
             })
 
             try { 
