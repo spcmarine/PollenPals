@@ -1,4 +1,4 @@
-.signupPicture{
+.loginPicture{
   width: 35%;
   border-radius: 100px;
   display: flex;
@@ -16,37 +16,31 @@
   align-items: center;
 }
 
-.signupArea {
+.loginFormArea {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 70%;
-  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.signupForm {
+.loginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
 }
 
-.signupHeader {
+.loginHeader {
   color: white;
-  margin-bottom: 48px;
-  font-size: 48px;
+  margin-bottom: 36px;
+  font-size: 36px;
 }
 
-.login {
-  height: 100%;
-  width: 100%;
-}
-
-.email, .password, .password2, .firstName, .lastName {
+.email, .password {
   padding: 8px;
   background-color: #D2FFCF;
   color: #3C6E71;
@@ -69,24 +63,9 @@
   font-size: 16px;
 }
 
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-}
-
 .leftMargin, .rightMargin {
   height: 100%;
   width: 40%;
-}
-
-.loginLink {
-  color: white;
-}
-
-.loginLink:visited {
-  color: white;
 }
 
 .pageWithNav {
@@ -95,4 +74,19 @@
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.signupLink {
+  color: white;
+}
+
+.signupLink:visited {
+  color: white;
 }

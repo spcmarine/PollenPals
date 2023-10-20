@@ -1,0 +1,30 @@
+.navbar {
+  height: 84px;
+  background-color: #FCB97D;
+  width: 77%;
+  margin-top: 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 100%;
+  margin-top: -6px;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+}
+
+.link {
+  color: #3C6E71;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: 725;
+  margin-right: 24px;
+  margin-top: -10px;
+}
