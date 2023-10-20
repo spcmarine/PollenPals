@@ -3,6 +3,7 @@ import './app.css';
 import LoginForm from './pages/login/LoginForm';
 import SignupForm from './pages/signup/signup';
 import Listings from './pages/Listings/listings.jsx'
+import CreateListing from './pages/createListing/CreateListing.jsx'
 import {
     useNavigate,
     Routes,
@@ -15,6 +16,7 @@ const App = () => {
             <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } />}/>
             <Route path='/signup' element={<SignupForm navigate={ useNavigate() } /> }/>
             <Route path='/listings' element={<Listings navigate={ useNavigate() } /> }/>
+            <Route path='/createListing' element={<CreateListing navigate={ useNavigate() } /> }/>
         </Routes>
     )
 }
