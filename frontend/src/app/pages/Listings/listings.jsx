@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-
+import Navbar from "../../components/navbar/Navbar";
 import styles from './listings.css'
 
 const Listings = ({ navigate }) => {
@@ -10,7 +10,7 @@ const Listings = ({ navigate }) => {
   
     useEffect(() => {
       if(token) {
-        fetch("/users/home", {
+        fetch("/listings", {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -32,6 +32,7 @@ const Listings = ({ navigate }) => {
     if(token) {
         return(
           <>
+          <Navbar/>
             <div id='homepage' className={styles.homepage}>
               <h1>Homepage</h1>
               <h2>listings</h2>
