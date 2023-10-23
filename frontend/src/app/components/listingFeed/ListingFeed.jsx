@@ -21,8 +21,6 @@ const ListingFeed = ({ navigate }) => {
                 setToken(window.localStorage.getItem("token"))
                 //setUser(data.user);
                 setListings(data.listings);
-                //console.log('This is the test one')
-                console.log(data.listings);
             })
         }
 
@@ -33,7 +31,20 @@ const ListingFeed = ({ navigate }) => {
         <div id='listing-feed' className={styles.listingFeed}>
             <h1>Listing Feed</h1>
             <div id='listing-feed-content'>
-                <ListingItem title={data.listings.title}></ListingItem>
+                {listings.map((listing)=> {
+                    return (
+                        <ListingItem 
+                            title={listing.title} 
+                            description={listing.description} 
+                            location={listing.location} 
+                            age={listing.age} 
+                            tip={listing.tip} 
+                            size={listing.size}
+                            request={listing.request}
+                        >
+                        </ListingItem>
+                    )
+                })}
             </div>
         </div>
     )
