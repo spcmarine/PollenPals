@@ -1,0 +1,131 @@
+.pageWithNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.fullPage{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.leftMargin, .rightMargin {
+  height: 100%;
+  width: 30%;
+}
+
+.creationArea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.formArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #D2FFCF;
+  height: 100%;
+  max-height: 628px;
+  width: 100%;
+  border-radius: 25px;
+  padding: 24px;
+  margin-top: -24px;
+}
+
+.createListingHeader {
+  color: white;
+  margin-bottom: 36px;
+  font-size: 36px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.formTopHalf {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.formTopHalfRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(100% - 240px);
+}
+
+.submitArea{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.topHalfText {
+  border-radius: 6px;
+  height: 32px;
+  width: 100%;
+  margin-bottom: 24px;
+  border-style: solid;
+  border-color: #3C6E71;
+  border-width: 1px;
+  font-size: 24px;
+  padding: 8px;
+  color: #3C6E71;
+}
+
+.bottomText {
+  border-radius: 6px;
+  height: 32px;
+  width: 100%;
+  margin-bottom: 24px;
+  border-style: solid;
+  border-color: #3C6E71;
+  border-width: 1px;
+  padding: 8px;
+  font-size: 24px;
+  color: #3C6E71;
+}
+
+.imageArea {
+  height: 204px;
+  width: 204px;
+  background-color: white;
+  border-style: solid;
+  border-color: #3C6E71;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.imageEntry {
+  display: flex;
+  flex-direction: column;
+  overflow: none;
+  width: 85px;
+}
+
+.submit {
+  height: 36px;
+  width: 96px;
+  border: none;
+  background-color: #FCB97D;
+  border-radius: 10px;
+  color: #3C6E71;
+  font-size: 16px;
+}

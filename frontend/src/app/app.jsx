@@ -4,7 +4,7 @@ import LoginForm from './pages/login/LoginForm';
 import SignupForm from './pages/signup/signup';
 import Listings from './pages/Listings/listings.jsx'
 import Homepage from './pages/Homepage/Homepage'
-import CreateListing from './pages/createListing/CreateListing.jsx'
+import CreateListing from './pages/CreateListing/CreateListing.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 
 import {
@@ -20,7 +20,7 @@ const App = () => {
             <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } />}/>
             <Route path='/signup' element={<SignupForm navigate={ useNavigate() } /> }/>
             <Route path='/listings' element={<Listings navigate={ useNavigate() } /> }/>
-            <Route path='/createListing' element={<CreateListing navigate={ useNavigate() } /> }/>
+            <Route path='/create-listing' element={<CreateListing navigate={ useNavigate() } /> }/>
             <Route path='/users' element = {<Profile navigate={ useNavigate() } /> }/>
         </Routes>
     )

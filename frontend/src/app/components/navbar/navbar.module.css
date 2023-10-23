@@ -1,26 +1,50 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.navbar {
+  height: 84px;
   background-color: #FCB97D;
+  width: 77%;
+  margin-top: 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-li {
-  float: left;
+.logoArea {
+  height: 100%
 }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+.logo {
+  height: 100%;
+  margin-top: -6px;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+}
+
+.link {
+  color: #3C6E71;
+  font-size: 24px;
   text-decoration: none;
+  font-weight: 725;
+  margin-right: 24px;
+  margin-top: -10px;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+.avatarArea {
+  height: 60%;
+  margin-top: -16px;
+  margin-right: 8px;
 }
 
-
+.avatar {
+  height: 100%;
+  border-radius: 50%;
+  border-color: #3C6E71;
+  border-style: solid;
+  border-width: 6px;
+}
