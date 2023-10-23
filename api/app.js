@@ -7,6 +7,9 @@ const logger = require('morgan')
 const path = require('path')
 const mongoose = require('mongoose')
 require('dotenv').config()
+const bodyParser = require('body-parser');
+
+
 
 app.use(cors({
   origin: 'http://localhost:3000'
@@ -16,11 +19,13 @@ const usersRouter = require('./routes/users');
 const listingsRouter = require('./routes/listings');
 const tokensRouter = require('./routes/tokens');
 
+
 app.use(express.json())
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
 
 const tokenChecker = (req, res, next) => {
 

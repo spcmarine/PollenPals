@@ -53,7 +53,31 @@ const UsersController = {
       console.error(error);
       res.status(500).json();
     }
+  },
+  
+  UploadProfilePicture: async (req, res) => {
+    try {
+      const { email, imageUrl } = req.body;
+
+      if (!email || !imageUrl) {
+          return res.status(400).json({ error: 'Email and imageUrl are required.' });
+      }
+
+      const user = await User.findOne({ email });
+
+      if (!user) {
+          return res.status(404).json({ error: 'User not found.' });
+      }
+      user.imageUrl = imageUrl;
+      await user.save();
+
+      res.status(200).json({ message: 'Profile image updated successfully.' });
+  } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error.' });
   }
+
+  }
+
 };
 
 module.exports = UsersController; 

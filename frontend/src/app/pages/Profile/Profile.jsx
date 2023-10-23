@@ -5,7 +5,7 @@ import UserComponent from '../../components/UserComponent/UserComponent'
 const Profile = () => {
     return (
         <div className={styles.profile}>
-        <p>Profile</p>
+        <p>Welcome To Your Profile Page</p>
         <UserComponent />
         </div>
 )
