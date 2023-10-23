@@ -49,7 +49,7 @@ const CreateListing = ({navigate}) => {
         if(response.status !== 201) {
             console.log(response.status)
             //navigate('/login')
-          } else {
+        } else {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             //window.sessionStorage.setItem("userEmail", data.email)
@@ -119,7 +119,7 @@ const CreateListing = ({navigate}) => {
                                 <input type='text' id='requestedPlants' name='requestedPlants' placeholder="Requested Plants" onChange={handleRequestedPlants}/>     
                                 <label htmlFor='image'>Image</label>
                                 <input type='file' id='image' name='image' />
-                                <button type='submit'>Submit</button>
+                                <button type='submit' id='submit'>Submit</button>
                             </form>
                         </div>
                     </div>
