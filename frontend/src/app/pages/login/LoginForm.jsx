@@ -21,8 +21,9 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
         if(response.status === 201) {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
-            window.sessionStorage.setItem("sessionUser", email)
-            window.sessionStorage.setItem("currentUser", data.username)
+            window.sessionStorage.setItem("userID",data.UserID )
+            window.sessionStorage.setItem("userEmail", email)
+            window.sessionStorage.setItem("username", data.username)
             console.log(data.username)
             navigate('/listings')
         } else if (response.status === 402){
