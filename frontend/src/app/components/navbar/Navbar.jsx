@@ -1,24 +1,24 @@
 import React from "react";
 import ReactDom from "react-router-dom";
-import styles from './navbar.module.css'
+import styles from './Navbar.module.css'
 
 
-const Navbar = () =>{
+const Navbar = ({navigate}) =>{
 
-    return(
-        <nav id='navbar' className={styles.navbar}>
-            <div className={styles.pageLinks}>
-            <div className={styles.pageLinksSingle}>
-                <ul>     
-                <li><a className={styles.listItem} href="/Profile">Profile</a></li>
-                <li><a className={styles.listItem} href="/CreateListing">Create Listing</a></li> 
-                </ul> 
-            </div>
-            
-        </div>
+  const logout = () => {
+    window.localStorage.removeItem("token")
+  }
 
-        </nav>
-    )
+  return(
+    <div className={styles.navbar}>
+      <a className={styles.logoArea} href="/listings"><img className={styles.logo} src="Logo.png"></img></a>
+      <div className={styles.links}>
+        <a className={styles.avatarArea} href="/listings"><img className={styles.avatar} src="DefaultUser.jpg"></img></a>
+        <a className={styles.link} href="/listings">{window.sessionStorage.getItem("username")}</a>
+        <a className={styles.link} href="/" onClick={logout}>Logout</a>
+      </div>
+    </div>
+  )
 }
 
 export default Navbar;

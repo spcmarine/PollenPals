@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import ListingFeed from "../../components/listingFeed/ListingFeed";
 import styles from './listings.css'
 
@@ -33,7 +33,7 @@ const Listings = ({ navigate }) => {
     if(token) {
         return(
           <>
-          <Navbar/>
+          <Navbar navigate={navigate}/>
             <div id='homepage' className={styles.homepage}>
               <h1>Homepage</h1>
               <h2>listings</h2>
