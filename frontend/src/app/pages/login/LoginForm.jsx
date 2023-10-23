@@ -24,7 +24,7 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
             window.sessionStorage.setItem("userID",data.UserID )
             window.sessionStorage.setItem("userEmail", email)
             window.sessionStorage.setItem("username", data.username)
-            console.log(data.username)
+            window.sessionStorage.setItem("currentFirstName", data.firstName)
             navigate('/listings')
         } else if (response.status === 402){
             setErrorMessage("Incorrect Password")
@@ -55,7 +55,7 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
                     <h2 className={styles.loginHeader}>Sign in</h2>
                     <form onSubmit={handleSubmit} className={styles.loginForm}>
                         <input placeholder='Email' id='email' className={styles.email} onChange={handleEmailChange}></input>
-                        <input placeholder="Password" className={styles.password} type='password' onChange={handlePasswordChange}></input>
+                        <input placeholder="Password" id='password' className={styles.password} type='password' onChange={handlePasswordChange}></input>
                         <input id='submit' type="submit" className={styles.submit} value="Submit" />
                         <div id='login-error-message' className={styles.errorMessage}>{errorMessage}</div>
                     </form>
