@@ -24,7 +24,7 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
             window.sessionStorage.setItem("userID",data.UserID )
             window.sessionStorage.setItem("userEmail", email)
             window.sessionStorage.setItem("username", data.username)
-            console.log(data.username)
+            window.sessionStorage.setItem("currentFirstName", data.firstName)
             navigate('/listings')
         } else if (response.status === 402){
             setErrorMessage("Incorrect Password")
