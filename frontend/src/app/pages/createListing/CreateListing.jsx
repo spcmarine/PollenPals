@@ -49,7 +49,7 @@ const CreateListing = ({navigate}) => {
         if(response.status !== 201) {
             console.log(response.status)
             //navigate('/login')
-          } else {
+        } else {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             //window.sessionStorage.setItem("userEmail", data.email)
