@@ -27,6 +27,7 @@ const UserComponent = ({token, setToken}) => {
         }
 
         if (data.imageUrl) {
+            console.log("data.imageUrl: ", data.imageUrl);
             setProfileImage(data.imageUrl);
         }
 
