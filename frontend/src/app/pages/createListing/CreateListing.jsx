@@ -47,14 +47,15 @@ const CreateListing = ({navigate}) => {
             })
         })
         if(response.status !== 201) {
-            navigate('/login')
+            console.log(response.status)
+            //navigate('/login')
           } else {
             let data = await response.json()
-            //window.localStorage.setItem("token", data.token)
+            window.localStorage.setItem("token", data.token)
             //window.sessionStorage.setItem("userEmail", data.email)
             //window.sessionStorage.setItem("userName", data.username)
             //console.log(data.username)
-            navigate('/home')
+            navigate('/listings')
         
                 }
         }
