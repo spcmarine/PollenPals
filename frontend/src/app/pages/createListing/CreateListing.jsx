@@ -119,7 +119,7 @@ const CreateListing = ({navigate}) => {
                                 <input type='text' id='requestedPlants' name='requestedPlants' placeholder="Requested Plants" onChange={handleRequestedPlants}/>     
                                 <label htmlFor='image'>Image</label>
                                 <input type='file' id='image' name='image' />
-                                <button type='submit'>Submit</button>
+                                <button type='submit' id='submit'>Submit</button>
                             </form>
                         </div>
                     </div>
