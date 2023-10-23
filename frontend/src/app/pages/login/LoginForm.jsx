@@ -21,11 +21,11 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
         if(response.status === 201) {
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
-            window.sessionStorage.setItem("sessionUser", email)
-            window.sessionStorage.setItem("currentUser", data.username)
+            window.sessionStorage.setItem("userID",data.UserID )
+            window.sessionStorage.setItem("userEmail", email)
+            window.sessionStorage.setItem("username", data.username)
             window.sessionStorage.setItem("currentFirstName", data.firstName)
-            console.log(data.firstName)
-            navigate('/users')
+            navigate('users')
         } else if (response.status === 402){
             setErrorMessage("Incorrect Password")
             navigate('/login')
