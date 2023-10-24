@@ -7,4 +7,5 @@ html, body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: #003D00;
+    background-attachment: fixed;
 }

@@ -39,7 +39,7 @@ const ListingFeed = ({ navigate }) => {
                             age={listing.age} 
                             tip={listing.tip} 
                             size={listing.size}
-                            request={listing.request}
+                            request={listing.requestedPlants}
                             type={listing.userPlant}
                         >
                         </ListingItem>

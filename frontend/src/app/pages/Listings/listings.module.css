@@ -24,3 +24,17 @@
 .content{
     width: 60%;
 }
+
+.createListing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    margin-top: 250px;
+}
+
+.plusImage {
+    margin-left: 8px;
+    margin-bottom: -2px;
+}
