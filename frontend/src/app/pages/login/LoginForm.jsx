@@ -28,13 +28,13 @@ const LoginForm  = ({navigate, setSessionUser, sessionUser}) => {
             navigate('/listings')
         } else if (response.status === 402){
             setErrorMessage("Incorrect Password")
-            navigate('/login')
+            // navigate('/login')
         } else if (response.status === 401){
             setErrorMessage("Incorrect Email")
-            navigate('/login')
+            // navigate('/login')
         } else {
             setErrorMessage("Something went wrong, please try again later")
-            navigate('/login')
+            // navigate('/login')
         }
     }
     
