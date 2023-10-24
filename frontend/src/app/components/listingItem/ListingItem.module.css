@@ -1,0 +1,21 @@
+.listingItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #3C6E71;
+    padding:24px;
+}
+
+.picture {
+    max-height: 300px;
+    max-width: 300px;
+    margin-right: 24px;
+}
+
+.textArea {
+    font-size: 14px;
+}

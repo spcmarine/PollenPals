@@ -19,9 +19,9 @@ const ListingFeed = ({ navigate }) => {
             .then(async data => {
                 window.localStorage.setItem("token", data.token)
                 setToken(window.localStorage.getItem("token"))
-                setUser(data.user);
-                console.log(data.user);
-                setListings(data.listings);
+
+                const orderedListings = data.listings.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+                setListings(orderedListings);
             })
         }
 
@@ -30,18 +30,18 @@ const ListingFeed = ({ navigate }) => {
 
     return(
         <div id='listing-feed' className={styles.listingFeed}>
-            <h1>Listing Feed</h1>
             <div id='listing-feed-content'>
                 {listings.map((listing)=> {
                     return (
                         <ListingItem 
                             title={listing.title} 
                             description={listing.description} 
-                            location={listing.location} 
+                            location={listing.userLocation} 
                             age={listing.age} 
                             tip={listing.tip} 
                             size={listing.size}
-                            request={listing.request}
+                            request={listing.requestedPlants}
+                            type={listing.userPlant}
                         >
                         </ListingItem>
                     )
