@@ -6,6 +6,7 @@ import Listings from './pages/Listings/listings.jsx'
 import Homepage from './pages/Homepage/Homepage'
 import CreateListing from './pages/CreateListing/CreateListing.jsx'
 import Profile from './pages/Profile/Profile.jsx'
+import AboutUs from './pages/AboutUs/AboutUs.jsx'
 
 import {
     useNavigate,
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='/listings' element={<Listings navigate={ useNavigate() } /> }/>
             <Route path='/create-listing' element={<CreateListing navigate={ useNavigate() } /> }/>
             <Route path='/users' element = {<Profile navigate={ useNavigate() } /> }/>
+            <Route path='/aboutus' element={<AboutUs navigate={ useNavigate() } /> }/>
         </Routes>
     )
 }
