@@ -31,6 +31,12 @@ const Listings = ({ navigate }) => {
     // }
 
     if(token) {
+
+        useEffect(() => {
+          console.log('Wanna log out?!');
+          navigate('/login');
+        })
+      } else {
         return(
           <>
           <Navbar navigate={navigate}/>
@@ -44,9 +50,6 @@ const Listings = ({ navigate }) => {
             </div>
           </>
         )
-      } else {
-        console.log('Wanna log out?!');
-        navigate('/login');
       }
     }
     
