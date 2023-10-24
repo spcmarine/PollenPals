@@ -5,7 +5,7 @@ import ListingItem from '../listingItem/ListingItem';
 const ListingFeed = ({ navigate }) => {
 
     const [token, setToken] = useState(window.localStorage.getItem("token"));
-    //const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
     const [listings, setListings] = useState([]);
 
     useEffect(() => {
@@ -19,10 +19,8 @@ const ListingFeed = ({ navigate }) => {
             .then(async data => {
                 window.localStorage.setItem("token", data.token)
                 setToken(window.localStorage.getItem("token"))
-                //setUser(data.user);
-                console.log(data.listings)
+
                 const orderedListings = data.listings.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
-                console.log(orderedListings)
                 setListings(orderedListings);
             })
         }

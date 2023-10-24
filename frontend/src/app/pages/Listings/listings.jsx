@@ -6,35 +6,18 @@ import styles from './listings.module.css';
 const Listings = ({ navigate }) => {
   
     const [token, setToken] = useState(window.localStorage.getItem("token"));
-    const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState([]);
-  
-    useEffect(() => {
-      if(token) {
-        fetch("/listings", {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        })
-          .then(response => response.json())
-          .then(async data => {
-            window.localStorage.setItem("token", data.token)
-            setToken(window.localStorage.getItem("token"))
-            setUser(data.user);
-          })
-      }
-    }, [token, setToken, setUser])
-    
-    const logout = () => {
-      window.localStorage.removeItem("token")
-      navigate('/login')
-    }
 
     const createListing = () => {
       navigate('/create-listing')
     }
 
     if(token) {
+
+        useEffect(() => {
+          console.log('Wanna log out?!');
+          navigate('/login');
+        })
+      } else {
         return(
           <div className={styles.pageWithNav}>
           <Navbar navigate={navigate}/>
@@ -49,8 +32,6 @@ const Listings = ({ navigate }) => {
           </div>
 
         )
-      } else {
-        navigate('/login')
       }
     }
     
