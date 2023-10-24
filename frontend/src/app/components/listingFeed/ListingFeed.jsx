@@ -20,7 +20,10 @@ const ListingFeed = ({ navigate }) => {
                 window.localStorage.setItem("token", data.token)
                 setToken(window.localStorage.getItem("token"))
                 //setUser(data.user);
-                setListings(data.listings);
+                console.log(data.listings)
+                const orderedListings = data.listings.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+                console.log(orderedListings)
+                setListings(orderedListings);
             })
         }
 
