@@ -29,18 +29,18 @@ const ListingFeed = ({ navigate }) => {
 
     return(
         <div id='listing-feed' className={styles.listingFeed}>
-            <h1>Listing Feed</h1>
             <div id='listing-feed-content'>
                 {listings.map((listing)=> {
                     return (
                         <ListingItem 
                             title={listing.title} 
                             description={listing.description} 
-                            location={listing.location} 
+                            location={listing.userLocation} 
                             age={listing.age} 
                             tip={listing.tip} 
                             size={listing.size}
                             request={listing.request}
+                            type={listing.userPlant}
                         >
                         </ListingItem>
                     )

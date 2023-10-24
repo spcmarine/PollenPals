@@ -1,0 +1,26 @@
+.pageWithNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.leftMargin, .rightMargin {
+    height: 100%;
+    width: 30%;
+}
+
+.fullPage{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
+.content{
+    width: 60%;
+}

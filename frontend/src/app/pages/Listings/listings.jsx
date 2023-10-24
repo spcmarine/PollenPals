@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import ListingFeed from "../../components/listingFeed/ListingFeed";
-import styles from './listings.css'
+import styles from './listings.module.css';
 
 const Listings = ({ navigate }) => {
   
@@ -32,17 +32,17 @@ const Listings = ({ navigate }) => {
 
     if(token) {
         return(
-          <>
+          <div className={styles.pageWithNav}>
           <Navbar navigate={navigate}/>
-            <div id='homepage' className={styles.homepage}>
-              <h1>Homepage</h1>
-              <h2>listings</h2>
+            <div id='homepage' className={styles.fullPage}>
+              <div className={styles.marginLeft} />
               <div id='homepage-content' className={styles.content}>
                 <ListingFeed token={token}/>
-                {/* this should contain the listing feed componaet             */}
               </div>
+              <div className={styles.marginRight} />
             </div>
-          </>
+          </div>
+
         )
       } else {
         navigate('/login')

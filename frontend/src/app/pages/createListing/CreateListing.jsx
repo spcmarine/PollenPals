@@ -113,14 +113,14 @@ const CreateListing = ({ navigate }) => {
                 </div>
                 <div className={styles.formTopHalfRight}>
                   <input type="text" id="title" name="title" placeholder="&#128204; Title" className={styles.topHalfText} onChange={handleTitleChange}/>
-                  <input type="text" id="plant" name="plant" placeholder="&#127793; Plant" className={styles.topHalfText} onChange={handleUserPlant} />
+                  <input type="text" id="plant" name="plant" placeholder="`&#127793;` Plant" className={styles.topHalfText} onChange={handleUserPlant} />
                   <input type="text" id="location" name="location" placeholder="&#127757; Location" className={styles.topHalfText} onChange={handleLocationChange}/>
                 </div>
               </div>
               <input type="text" id="description" name="description" placeholder="&#128466; Description" className={styles.bottomText} onChange={handleDescriptionChange}/>
               <input type="text" id="age" name="age" placeholder="&#128197; Age" className={styles.bottomText} onChange={handleAgeChange}/>
               <input type="text" id="size" name="size" placeholder="&#127795; Size" className={styles.bottomText} onChange={handleSizeChange}/>
-              <input type="text" id="tip" name="tip" placeholder="&#9757; Tip" className={styles.bottomText} onChange={handleTipChange}/>
+              <input type="text" id="tip" name="tip" placeholder="&#128161; Tip" className={styles.bottomText} onChange={handleTipChange}/>
               <input type="text" id="requestedPlants" name="requestedPlants" placeholder="&#127802; Requested Plants (separated by ', ')" className={styles.bottomText} onChange={handleRequestedPlants}/>
               <div className={styles.submitArea}>
                 <button type="submit" className={styles.submit}>Create</button>
