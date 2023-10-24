@@ -9,7 +9,7 @@ const SignedOutNavbar = () => {
       <div className={styles.links}>
         <a className={styles.link} href="/login">Log in</a>
         <a className={styles.link} href="/signup">Sign up</a>
-        <div className={styles.link}>About us</div>
+        <a className={styles.link} href="/aboutus">About us</a>
       </div>
     </div>
   )
