@@ -24,3 +24,9 @@
     color: white;
     font-size: 28px;
   }
+
+  .aboutPicture {
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+  }
