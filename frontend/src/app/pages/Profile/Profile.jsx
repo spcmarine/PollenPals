@@ -3,7 +3,9 @@ import styles from './Profile.module.css'
 import UserComponent from '../../components/UserComponent/UserComponent'
 import Navbar from '../../components/Navbar/Navbar'
 
+
 const Profile = ({navigate}) => {
+
     return (
         <div className={styles.profile}>
             <Navbar navigate={navigate}/>

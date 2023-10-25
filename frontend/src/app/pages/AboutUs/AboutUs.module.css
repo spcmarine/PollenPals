@@ -1,0 +1,35 @@
+.pageWithNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .aboutUsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 200px;
+  }
+
+  .aboutUsTitle {
+    margin-top: 40px;
+    color: white;
+    /* margin-bottom: 30px; */
+    font-size: 35px;
+  }
+
+  .aboutUsText {
+    color: white;
+    font-size: 28px;
+    padding-bottom: 40px;
+  }
+
+  .aboutPicture {
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
