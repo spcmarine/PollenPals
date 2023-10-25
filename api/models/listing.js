@@ -14,7 +14,8 @@ const ListingSchema = new mongoose.Schema({
     age: {type: String, required: true},
     size: {type: String, required: true},
     tip: {type: String},
-    image: {type: String}
+    image: {type: String},
+    createdAt: {type: Date, default: Date.now}
     });
     
 

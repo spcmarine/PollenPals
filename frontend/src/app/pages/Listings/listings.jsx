@@ -11,7 +11,7 @@ const Listings = ({ navigate }) => {
       navigate('/create-listing')
     }
 
-    if(token) {
+    if(!token) {
 
         useEffect(() => {
           console.log('Wanna log out?!');
@@ -25,7 +25,7 @@ const Listings = ({ navigate }) => {
               <div className={styles.marginLeft} />
               <div id='homepage-content' className={styles.content}>
                 <h2 className={styles.createListing} onClick={createListing}>Create Listing <img src='Group.png' className={styles.plusImage}/></h2>
-                <ListingFeed token={token}/>
+                <ListingFeed token={token} setToken={setToken}/>
               </div>
               <div className={styles.marginRight} />
             </div>

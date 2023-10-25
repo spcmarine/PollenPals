@@ -2,9 +2,8 @@ import React, { useEffect, useState} from "react";
 import styles from './listingFeed.module.css';
 import ListingItem from '../listingItem/ListingItem';
 
-const ListingFeed = ({ navigate }) => {
+const ListingFeed = ({ navigate, token, setToken }) => {
 
-    const [token, setToken] = useState(window.localStorage.getItem("token"));
     const [user, setUser] = useState(null);
     const [listings, setListings] = useState([]);
 
