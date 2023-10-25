@@ -42,7 +42,8 @@
 }
 
 .avatar {
-  height: 100%;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
   border-color: #3C6E71;
   border-style: solid;

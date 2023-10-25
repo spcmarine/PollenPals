@@ -2,7 +2,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import styles from './UserComponent.module.css';
 import ProfileImageUploader from '../ProfileImageUploader/ProfileImageUploader';
 
-const UserComponent = ({token, setToken}) => {
+const UserComponent = ({navigate, token, setToken}) => {
     const [email, setEmail] = useState(sessionStorage.getItem('userEmail') || '');
     const [firstName, setFirstName] = useState(sessionStorage.getItem('currentFirstName') || '');
     const[profileImage, setProfileImage] = useState('');
@@ -27,14 +27,15 @@ const UserComponent = ({token, setToken}) => {
         }
 
         if (data.imageUrl) {
-            console.log("data.imageUrl: ", data.imageUrl);
+            window.sessionStorage.setItem('profileImage', data.imageUrl);
             setProfileImage(data.imageUrl);
+            
         }
 
 
     } catch (error) {         
     
-        console.error("Error fetching user name:", error);
+        console.error("Error fetching image:", error);
     
 }}, [token, setToken, email]);
     
@@ -45,6 +46,8 @@ useEffect(() => {
 const handleProfileImageUpdate = async (uploadedImageUrl) => {
     // Update the state with the new URL
     setProfileImage(uploadedImageUrl);
+    window.sessionStorage.setItem('profileImage', uploadedImageUrl);
+    window.location.reload()
 
 
     await fetch('http://localhost:8080/users/profile-picture', {
@@ -63,7 +66,6 @@ const handleProfileImageUpdate = async (uploadedImageUrl) => {
     
     return (
         <div className={styles.userComponent}>
-        <p>Hello {firstName}</p>
         <img src={profileImage} alt="profileImage" />
         <ProfileImageUploader onImageUpload={handleProfileImageUpdate} />
         </div>
