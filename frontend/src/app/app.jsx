@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/" element={<Homepage navigate={ useNavigate()}/>}></Route>
             <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } />}/>
             <Route path='/signup' element={<SignupForm navigate={ useNavigate() } /> }/>
-            <Route path='/listings' element={<Listings navigate={ useNavigate() } /> }/>
+            <Route path='/listingspage' element={<Listings navigate={ useNavigate() } /> }/>
             <Route path='/create-listing' element={<CreateListing navigate={ useNavigate() } /> }/>
             <Route path='/profile' element = {<Profile navigate={ useNavigate() } /> }/>
             <Route path='/aboutus' element={<AboutUs navigate={ useNavigate() } /> }/>
