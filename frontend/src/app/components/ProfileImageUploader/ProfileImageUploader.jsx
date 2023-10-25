@@ -7,7 +7,7 @@ const UPLOAD_PRESET = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
 console.log ("CLOUD_NAME: ", CLOUD_NAME);
 
 
-const ProfileImageUploader = ({ onImageUpload }) => {
+const ProfileImageUploader = ({ navigate, onImageUpload }) => {
     const [loading, setLoading] = useState(false);
 
     const handleImageChange = async (e) => {
@@ -35,6 +35,7 @@ const ProfileImageUploader = ({ onImageUpload }) => {
         <div>
             <input type="file" onChange={handleImageChange} disabled={loading} />
             {loading && <p>Uploading...</p>}
+            
         </div>
     );
 }
