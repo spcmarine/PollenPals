@@ -20,6 +20,7 @@ const ListingsController = {
               userName: req.body.userName,
               userEmail: req.body.userEmail,
               userPlant: req.body.userPlant,
+              userAvatar: req.body.userAvatar,
               requestedPlants: req.body.requestedPlants,
               userLocation: req.body.userLocation,
               userID: req.user_id,
@@ -28,7 +29,6 @@ const ListingsController = {
               age: req.body.age,
               size: req.body.size,
               tip: req.body.tip,
-              image: req.body.image,
             })
 
             try { 

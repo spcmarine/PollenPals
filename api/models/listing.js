@@ -6,6 +6,7 @@ const ListingSchema = new mongoose.Schema({
     userName: {type: String, required: true},
     userEmail: {type: String, required: true},
     userPlant: {type: String, default: "None"},
+    userAvatar: {type: String},
     requestedPlants: {type: [String], default: ["None"]},
     userLocation: {type: String, required: true},
     isAvailable: {type: Boolean, default: true},
@@ -14,7 +15,6 @@ const ListingSchema = new mongoose.Schema({
     age: {type: String, required: true},
     size: {type: String, required: true},
     tip: {type: String},
-    image: {type: String},
     createdAt: {type: Date, default: Date.now}
     });
     

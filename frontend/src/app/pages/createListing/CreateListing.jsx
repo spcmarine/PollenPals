@@ -36,6 +36,7 @@ const CreateListing = ({ navigate }) => {
         userName: userName,
         userEmail: userEmail,
         userPlant: userPlant,
+        userAvatar: window.sessionStorage.getItem("profileImage"),
         requestedPlants: requestedPlants,
         userLocation: location,
         isAvailable: true,
@@ -56,7 +57,7 @@ const CreateListing = ({ navigate }) => {
       //window.sessionStorage.setItem("userEmail", data.email)
       //window.sessionStorage.setItem("userName", data.username)
       //console.log(data.username)
-      navigate("/listings");
+      navigate("/listingspage");
     }
   };
   const handleUserPlant = (event) => {

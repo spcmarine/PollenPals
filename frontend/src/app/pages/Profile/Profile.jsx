@@ -3,10 +3,10 @@ import styles from './Profile.module.css'
 import UserComponent from '../../components/UserComponent/UserComponent'
 import Navbar from '../../components/Navbar/Navbar'
 
-const Profile = () => {
+const Profile = ({navigate}) => {
     return (
         <div className={styles.profile}>
-            <Navbar/>
+            <Navbar navigate={navigate}/>
             <div className={styles.pageArea}>
                 <div className={styles.marginLeft} />
                     <div className={styles.profileContent}>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './ListingItem.module.css';
 
 
-const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt}) => {
+const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar}) => {
 
     const requestString = request.join(", ");
     const date = `${createdAt.substring(8, 10)}-${createdAt.substring(5, 7)}-${createdAt.substring(0, 4)}`
@@ -13,7 +13,7 @@ const ListingItem = ({title, description, tip, age, size, request, location, typ
             <div className={styles.textArea}>
                 <div className={styles.topBar}>
                     <div className={styles.usernameArea}>
-                        <img className={styles.avatar} src="DefaultUser.jpg"></img>
+                        <img className={styles.avatar} src={avatar}></img>
                         <h3>{username}</h3>
                     </div>
                     <div className={styles.date}>Date Posted: {date}</div>

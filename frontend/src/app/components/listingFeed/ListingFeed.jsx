@@ -43,6 +43,7 @@ const ListingFeed = ({ navigate, token, setToken }) => {
                             request={listing.requestedPlants}
                             type={listing.userPlant}
                             createdAt={listing.createdAt}
+                            avatar={listing.userAvatar}
                         >
                         </ListingItem>
                     )
