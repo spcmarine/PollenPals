@@ -33,6 +33,7 @@ const ListingFeed = ({ navigate, token, setToken }) => {
                 {listings.map((listing)=> {
                     return (
                         <ListingItem 
+                            username={listing.userName}
                             title={listing.title} 
                             description={listing.description} 
                             location={listing.userLocation} 
