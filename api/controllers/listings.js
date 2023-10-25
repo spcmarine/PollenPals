@@ -28,7 +28,7 @@ const ListingsController = {
               age: req.body.age,
               size: req.body.size,
               tip: req.body.tip,
-              image: req.body.image
+              image: req.body.image,
             })
 
             try { 
