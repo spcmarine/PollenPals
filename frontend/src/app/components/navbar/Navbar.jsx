@@ -6,8 +6,9 @@ import styles from './Navbar.module.css'
 const Navbar = ({navigate}) =>{
 
   const logout = () => {
-    window.localStorage.removeItem("token")
-    window.sessionStorage.clear()
+    window.localStorage.removeItem("token");
+    window.sessionStorage.clear();
+    navigate('/login');
   }
 
   //onst profileImageUrl = window.sessionStorage.getItem('profileImage') || 'DefaultUser.jpg';
