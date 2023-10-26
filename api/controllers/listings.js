@@ -6,7 +6,6 @@ const ListingsController = {
     Index: async(req, res) => {
       try {
         const listings = await Listing.find().exec()
-        console.log(listings)
         const token = await TokenGenerator.jsonwebtoken(req.user_id)
         res.status(200).json({message: "OK", listings: listings, token: token})
       } catch (err) {

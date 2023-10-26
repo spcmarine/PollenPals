@@ -22,7 +22,6 @@ describe('/listings', () => {
           // Set the JWT token to expire in 10 minutes
           exp: Math.floor(Date.now() / 1000) + (10 * 60)
         }, secret);
-        console.log(secret)
       });
     
     beforeEach(async () => {
