@@ -2,10 +2,15 @@ import React, {useState, useEffect} from 'react';
 import styles from './ListingItem.module.css';
 
 
-const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar}) => {
+const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar, email}) => {
 
+    const [contactButton, setContactButton] = useState("Contact Me Here")
     const requestString = request.join(", ");
     const date = `${createdAt.substring(8, 10)}-${createdAt.substring(5, 7)}-${createdAt.substring(0, 4)}`
+    
+    const showEmail = () => {
+        setContactButton(email)
+    }
 
     return (
         <listing className={styles.listingItem}>
@@ -28,7 +33,7 @@ const ListingItem = ({title, description, tip, age, size, request, location, typ
                 <p className={styles.request}>&#127802; Requests: {requestString}</p>
                 <div className={styles.bottomBar}>
                     <div className={styles.date}></div>
-                    <button className={styles.contactButton}>Contact Me Here</button>
+                    <button className={styles.contactButton} onClick={showEmail}>{contactButton}</button>
                 </div>
             </div>
         </listing>
