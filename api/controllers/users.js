@@ -47,6 +47,7 @@ const UsersController = {
       if (!currentUser) {
         return res.status(404).json();
       } else {
+        console.log(currentUser)
         return res.status(200).json(currentUser);
       }
     } catch (error) {

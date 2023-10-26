@@ -1,4 +1,5 @@
 import React, {useState}from 'react';
+import styles from './ProfileImageUploader.module.css'
 
 
 const CLOUD_NAME = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
@@ -33,7 +34,7 @@ const ProfileImageUploader = ({ navigate, onImageUpload }) => {
 
     return (
         <div>
-            <input type="file" onChange={handleImageChange} disabled={loading} />
+            <input type="file" onChange={handleImageChange} disabled={loading} className={styles.imageText}/>
             {loading && <p>Uploading...</p>}
             
         </div>

@@ -24,7 +24,9 @@ const Profile = ({navigate}) => {
                                 <p>Email Address: {window.sessionStorage.getItem('userEmail')}</p>
                                 
                             </div>
-                            <UserComponent />
+                            <div className={styles.photoArea}>
+                                <UserComponent className={styles.photo}/>
+                            </div>
                         </div> 
                     </div>  
                 <div className={styles.marginRight} />
