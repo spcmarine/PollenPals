@@ -2,12 +2,27 @@ import React, {useState, useEffect} from 'react';
 import styles from './ListingItem.module.css';
 
 
-const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar, email, image}) => {
+const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, email, image, token}) => {
 
 
     const [contactButton, setContactButton] = useState("Contact Me Here")
     const requestString = request.join(", ");
     const date = `${createdAt.substring(8, 10)}-${createdAt.substring(5, 7)}-${createdAt.substring(0, 4)}`
+    const [avatar, setAvatar] = useState("DefaultUser.jpg")
+
+    useEffect(() => {
+            fetch(`/users?email=${email}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setAvatar(data.imageUrl)
+                console.log(avatar)
+            })
+        })
     
     const showEmail = () => {
         setContactButton(email)

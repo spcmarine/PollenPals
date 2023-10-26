@@ -66,8 +66,8 @@ const handleProfileImageUpdate = async (uploadedImageUrl) => {
     
     return (
         <div className={styles.userComponent}>
-        <img src={profileImage} alt="profileImage" />
-        <ProfileImageUploader onImageUpload={handleProfileImageUpdate} />
+        <img src={profileImage} alt="profileImage" className={styles.profilePreview}/>
+        <ProfileImageUploader onImageUpload={handleProfileImageUpdate} className={styles.photoText}/>
         </div>
 )}
 

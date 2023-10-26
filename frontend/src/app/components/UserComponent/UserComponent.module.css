@@ -1,0 +1,15 @@
+.profilePreview {
+  max-width: 290px;
+  max-height: 250px;
+}
+
+.photoText {
+  overflow: none;
+  width: 85px;
+}
+
+.userComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
