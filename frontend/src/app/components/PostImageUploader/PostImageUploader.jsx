@@ -1,4 +1,5 @@
 import React, {useState}from 'react';
+import styles from './PostImageUploader.module.css';
 
 
 const CLOUD_NAME = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
@@ -7,10 +8,10 @@ const UPLOAD_PRESET = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
 
 
 
-const ProfileImageUploader = ({ navigate, onImageUpload }) => {
+const PostImageUploader = ({ navigate, onImageUpload }) => {
     const [loading, setLoading] = useState(false);
 
-    const handleImageChange = async (e) => {
+    const PostCloudUpload = async (e) => {
         setLoading(true);
         const file = e.target.files[0];
         const formData = new FormData();
@@ -32,13 +33,12 @@ const ProfileImageUploader = ({ navigate, onImageUpload }) => {
     };
 
     return (
-        <div>
-            <input type="file" onChange={handleImageChange} disabled={loading} />
+        <div class={styles.imageContainer}>
+            <input type="file" onChange={PostCloudUpload} disabled={loading} className={styles.imageEntry}/>
             {loading && <p>Uploading...</p>}
             
         </div>
     );
 }
 
-export default ProfileImageUploader;
-
+export default PostImageUploader;

@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import styles from './ListingItem.module.css';
 
 
-const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar, email}) => {
+const ListingItem = ({title, description, tip, age, size, request, location, type, username, createdAt, avatar, email, image}) => {
+
 
     const [contactButton, setContactButton] = useState("Contact Me Here")
     const requestString = request.join(", ");
@@ -12,9 +13,10 @@ const ListingItem = ({title, description, tip, age, size, request, location, typ
         setContactButton(email)
     }
 
+    console.log(image)
     return (
         <listing className={styles.listingItem}>
-            <img src='defaultFlower.jpeg' alt='A lovely flower' className={styles.picture}/>
+            <img src={image || "defaultflower.jpeg"} alt='A lovely Image' className={styles.picture}/>
             <div className={styles.textArea}>
                 <div className={styles.topBar}>
                     <div className={styles.usernameArea}>

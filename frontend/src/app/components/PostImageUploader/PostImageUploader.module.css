@@ -1,0 +1,12 @@
+.imageEntry{
+    overflow: none;
+    width: 85px;
+    max-width: 204px;
+    max-height: 204px;
+}
+
+.imageContainer{
+    max-width: 204px;
+    max-height: 204px;
+    overflow: none;
+}
