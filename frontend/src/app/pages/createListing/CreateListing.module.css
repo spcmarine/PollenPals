@@ -130,3 +130,9 @@
   color: #3C6E71;
   font-size: 16px;
 }
+
+.imageContainer {
+  max-width: 204px;
+  max-height: 150px;
+  overflow: none;
+}

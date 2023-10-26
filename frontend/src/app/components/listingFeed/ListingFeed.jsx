@@ -42,6 +42,7 @@ const ListingFeed = ({ navigate, token, setToken }) => {
                             size={listing.size}
                             request={listing.requestedPlants}
                             type={listing.userPlant}
+                            image={listing.image}
                             createdAt={listing.createdAt}
                             avatar={listing.userAvatar}
                         >

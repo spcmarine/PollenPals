@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CreateListing.module.css";
 import Navbar from '../../components/Navbar/Navbar'
+import PostImageUploader from "../../components/PostImageUploader/PostImageUploader";
 
 const CreateListing = ({ navigate }) => {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
@@ -21,6 +22,7 @@ const CreateListing = ({ navigate }) => {
   const [size, setSize] = useState("");
   const [tip, setTip] = useState("");
   const [image, setImage] = useState("");
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -50,13 +52,10 @@ const CreateListing = ({ navigate }) => {
     });
     if (response.status !== 201) {
       console.log(response.status);
-      //navigate('/login')
+  
     } else {
       let data = await response.json();
       window.localStorage.setItem("token", data.token);
-      //window.sessionStorage.setItem("userEmail", data.email)
-      //window.sessionStorage.setItem("userName", data.username)
-      //console.log(data.username)
       navigate("/listingspage");
     }
   };
@@ -94,9 +93,11 @@ const CreateListing = ({ navigate }) => {
     setTip(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    setImage(event.target.value);
-  };
+  const handlePostImageUpdate = async (uploadedImageUrl) => {
+    setImage(uploadedImageUrl);
+    
+    };
+
 
   return (
     <div className={styles.pageWithNav}>
@@ -110,7 +111,9 @@ const CreateListing = ({ navigate }) => {
               <div className={styles.formTopHalf}>
                 <div className={styles.imageArea}>
                   <label for="image">Select Image</label>
-                  <input type="file" id="image" name="image" className={styles.imageEntry}/>
+                  <img src={image} className={styles.imageContainer}/>
+                  <PostImageUploader onImageUpload={handlePostImageUpdate} className={styles.imageEntry}/>
+                  
                 </div>
                 <div className={styles.formTopHalfRight}>
                   <input type="text" id="title" name="title" placeholder="&#128204; Title" className={styles.topHalfText} onChange={handleTitleChange}/>
