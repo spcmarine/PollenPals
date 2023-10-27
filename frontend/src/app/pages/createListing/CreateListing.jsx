@@ -110,7 +110,7 @@ const CreateListing = ({ navigate }) => {
             <form onSubmit={handleSubmit} id="create-listing-form" className={styles.form}>
               <div className={styles.formTopHalf}>
                 <div className={styles.imageArea}>
-                  <label for="image">Select Image</label>
+                  <label for="image" id="image">Select Image</label>
                   <img src={image} className={styles.imageContainer}/>
                   <PostImageUploader onImageUpload={handlePostImageUpdate} className={styles.imageEntry}/>
                   
@@ -127,7 +127,7 @@ const CreateListing = ({ navigate }) => {
               <input type="text" id="tip" name="tip" placeholder="&#128161; Tip" className={styles.bottomText} onChange={handleTipChange}/>
               <input type="text" id="requestedPlants" name="requestedPlants" placeholder="&#127802; Requested Plants (separated by ', ')" className={styles.bottomText} onChange={handleRequestedPlants}/>
               <div className={styles.submitArea}>
-                <button type="submit" className={styles.submit}>Create</button>
+                <button type="submit" id="submit" className={styles.submit}>Create</button>
               </div>
             </form>
           </div>
